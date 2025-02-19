@@ -2,7 +2,6 @@
   "name": "reactjs",
   "version": "1.0.0",
   "description": "sample readme",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +12,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.13.3"
-  }
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  },
+  "browserslist": [
+    "last 2 version"
+   
+  ]
 }
