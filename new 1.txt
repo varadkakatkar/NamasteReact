@@ -1,0 +1,105 @@
+React is not JSX
+
+it can be written without jsx
+JSX is not HTML inside jsx, it is HTML like syntax or XML like syntax
+
+jsx is just syntax , react element is an object 
+
+// Babel is a toolchain(javascript compiler) that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in various environments.
+
+
+React component 
+
+everthing in react is component 
+
+1) Class based components
+2) Functional components => react function that returns a jsx 
+
+
+component composition => component inside a component 
+
+ 
+
+
+Injection attack => corss side scriptng attack
+data is sanitizing by jsx 
+
+
+config driven UI
+
+React hook (normal js function)
+useState=> 
+
+whenever a state varable updates, react re-renders   the component
+useEffect 
+
+
+
+Reconciliation Algorithm (React fiber)
+
+
+
+
+Actual DOM is tag 
+<div>
+	<div>
+	
+	</div>
+</div>
+
+
+virtual DOM => representation of actual DOM( react elemennt object ) ( chapter 5) 
+
+
+Diff algo(fiber alo) react 16
+
+
+find out diff between old virtul dom and new virtual dom  and updates actaul dom
+react viber architecture (gihub link https://github.com/acdlite/react-fiber-architecture) 
+
+Incremental rendering ( efficient dom maunipulation ) 
+
+
+
+CHAPTER 6 
+monolith and microservice architecture 
+
+
+monolith 
+
+API , UI code , auth, db connetivity , sending notification 
+everthing inside same projects 
+microservice =>
+
+differnet service for different job
+combining together and creat a big app 
+(separation of concerns , single responsibility ) 
+
+two approaches to fetch data 
+
+1)as soon as page loads and after getting data render UI
+2)as soon as page loads quickly render UI then make API and after getting data once again ( better approach and better user experience ) 
+
+Render cycle are very fast ( 2 renders , instead of keep user waiting , showhim at least a skeleton and after getting data again render UI ) 
+
+
+useEffect hook => to do something after rendering function  / called after component renderd , call callback function 
+
+
+
+
+
+
+If origin mismatch then browser blocks access local to swiggey server( CORS video) 
+
+shimmmer UI 
+
+why to use useState
+
+on change of local state component , react re-renders a component ( on change in search box)
+
+
+
+
+
+
