@@ -114,6 +114,10 @@ state variable updates => rerenders component
  
  SPA => client side routing 
  
+ GraphQL => loads only data which is requeired in application 
  
-
-
+ 
+ chapter 9 optimizing app
+ single responsibility 
+ 
+ 

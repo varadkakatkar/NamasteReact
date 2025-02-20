@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import restaurantList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
@@ -19,11 +20,14 @@ const Body = () => {
             console.log("API Key in component:", SPOONACULAR_API_KEY);
             
             if (!SPOONACULAR_API_KEY) {
-                throw new Error('API key not found. Please check your environment variables.');
+                console.log("No API key found, using mock data");
+                setListOfRestaurants(restaurantList);
+                setFilteredList(restaurantList);
+                return;
             }
 
             const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&cuisine=indian&number=12&addRecipeInformation=true`;
-            console.log("Requesting URL:", url); // Debug log
+            console.log("Requesting URL:", url);
             
             const response = await fetch(url, {
                 headers: {
@@ -32,12 +36,22 @@ const Body = () => {
             });
             
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'API request failed');
+                console.log("API request failed, using mock data");
+                setListOfRestaurants(restaurantList);
+                setFilteredList(restaurantList);
+                return;
             }
             
             const json = await response.json();
-            console.log("API Response:", json); // Debug log
+            console.log("API Response:", json);
+            
+            // If the API returns empty results, use mock data
+            if (!json.results || json.results.length === 0) {
+                console.log("No results from API, using mock data");
+                setListOfRestaurants(restaurantList);
+                setFilteredList(restaurantList);
+                return;
+            }
             
             const formattedData = json.results.map(item => ({
                 id: item.id,
@@ -52,7 +66,9 @@ const Body = () => {
             setFilteredList(formattedData);
         } catch (error) {
             console.error("Error fetching restaurants:", error);
+            console.log("Using mock data due to error");
             setListOfRestaurants(restaurantList);
+            setFilteredList(restaurantList);
         }
     }
 
@@ -81,7 +97,9 @@ const Body = () => {
             <div className="restaurant-container">
                
                 {filteredList.map((restaurant) => (
-                    <RestaurantCard resData={restaurant} key={restaurant.id} />
+                    <Link to={`/restaurant/${restaurant.id}`}>
+                        <RestaurantCard resData={restaurant} key={restaurant.id} />
+                    </Link>
                 ))}
             </div>
         </div>

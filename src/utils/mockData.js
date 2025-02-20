@@ -105,4 +105,19 @@ const restaurantList = [
     }
 ]
 
+export const mockRecipeData = {
+    title: "Delicious Burger",
+    readyInMinutes: 30,
+    servings: 4,
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+    summary: "A juicy, classic American burger",
+    extendedIngredients: [
+        { original: "1/2 pound ground beef" },
+        { original: "2 burger buns" },
+        { original: "2 slices cheese" },
+        { original: "Lettuce and tomato" }
+    ],
+    instructions: "1. Form beef into patties. 2. Grill for 5 minutes each side. 3. Add cheese and serve on buns with toppings."
+};
+
 export default restaurantList;

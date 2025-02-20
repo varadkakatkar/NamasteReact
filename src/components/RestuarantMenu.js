@@ -1,35 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SPOONACULAR_API_KEY } from '../config.js';
-
+import { mockRecipeData } from '../utils/mockData.js';
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 const RestuarantMenu = () => {
     const {resId} = useParams();
 
-    // Mock data for development
-    const mockRecipeData = {
-        title: "Sample Recipe",
-        readyInMinutes: 30,
-        servings: 4,
-        image: "https://spoonacular.com/recipeImages/sample.jpg",
-        summary: "A delicious sample recipe",
-        extendedIngredients: [
-            { original: "2 cups rice" },
-            { original: "1 chicken breast" },
-            { original: "Mixed vegetables" }
-        ],
-        instructions: "Sample cooking instructions"
-    };
-
-    const fetchData = async () => {
+/*     const fetchData = async () => {
         try {
             const data = await fetch(`https://api.spoonacular.com/recipes/${resId}/information?apiKey=${SPOONACULAR_API_KEY}`);
             if (!data.ok) {
-                // If API limit reached, use mock data
-                if (data.status === 402) {
-                    console.log("Using mock data due to API limit");
-                    return mockRecipeData;
-                }
-                throw new Error(`HTTP error! status: ${data.status}`);
+                console.log("API failed, using mock data");
+                return mockRecipeData;
             }
             const json = await data.json();
             return json;
@@ -49,7 +31,10 @@ const RestuarantMenu = () => {
             setRecipe(data);
         };
         getRecipeData();
-    }, []);
+    }, []); */
+
+
+    const recipe = useRestaurantMenu(resId);
 
     return (
         <div>
