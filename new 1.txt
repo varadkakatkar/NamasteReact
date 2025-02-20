@@ -98,8 +98,22 @@ why to use useState
 
 on change of local state component , react re-renders a component ( on change in search box)
 
+state variable updates => rerenders component 
 
-
-
+ chapter 7 
+ 
+ 
+ Routing configuration
+ 
+ createBrowserRouter, RouterProvider, Outlet, Link,useRouteError
+ 
+ Client side routing
+ 
+ server side routing => make a network call and fetches the call renders page
+ 
+ 
+ SPA => client side routing 
+ 
+ 
 
 

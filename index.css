@@ -187,3 +187,20 @@ body {
     background-color: #45a049;
 }   
 
+.link {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #f97316; 
+}
+
